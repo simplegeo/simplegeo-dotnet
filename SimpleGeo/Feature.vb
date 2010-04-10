@@ -1,25 +1,15 @@
 ﻿Namespace SimpleGeo
     Public Class Feature
-        Inherits GeoJSON.DictionaryFeature(Of GeoJSON.Point)
+        Inherits GeoJSON.PointFeature(Of Properties)
 
         Private _ID As String
+        <Newtonsoft.Json.JsonProperty("id")> _
         Public Property ID() As String
             Get
                 Return _ID
             End Get
             Set(ByVal value As String)
                 _ID = value
-            End Set
-        End Property
-
-        Private _Distance As Double
-        <Newtonsoft.Json.JsonProperty("distance")> _
-        Public Property Distance() As Double
-            Get
-                Return _Distance
-            End Get
-            Set(ByVal value As Double)
-                _Distance = value
             End Set
         End Property
 
@@ -32,6 +22,28 @@
             End Get
             Set(ByVal value As Date)
                 _Created = value
+            End Set
+        End Property
+
+        Private _LayerLink As Link
+        <Newtonsoft.Json.JsonProperty("layerLink")> _
+        Public Property LayerLink() As Link
+            Get
+                Return _LayerLink
+            End Get
+            Set(ByVal value As Link)
+                _LayerLink = value
+            End Set
+        End Property
+
+        Private _SelfLink As Link
+        <Newtonsoft.Json.JsonProperty("selfLink")> _
+        Public Property SelfLink() As Link
+            Get
+                Return _SelfLink
+            End Get
+            Set(ByVal value As Link)
+                _SelfLink = value
             End Set
         End Property
     End Class

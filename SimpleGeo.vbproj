@@ -44,7 +44,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\DotNetOpenAuth.dll</HintPath>
     </Reference>
-    <Reference Include="GeoJSON, Version=0.1.3751.27066, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="GeoJSON, Version=0.1.3752.20210, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\GeoJSON.dll</HintPath>
     </Reference>
@@ -63,10 +63,15 @@
     <Import Include="System.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="langsamu\Json\DayOfWeekConverter.vb" />
     <Compile Include="SimpleGeo\AddressFeature.vb" />
     <Compile Include="SimpleGeo\AddressProperties.vb" />
-    <Compile Include="SimpleGeo\CreateFeature.vb" />
-    <Compile Include="SimpleGeo\CreateProperties.vb" />
+    <Compile Include="SimpleGeo\NearbyFeatureCollection.vb" />
+    <Compile Include="SimpleGeo\FeatureType.vb" />
+    <Compile Include="SimpleGeo\Link.vb" />
+    <Compile Include="SimpleGeo\DensityFeatureCollection.vb" />
+    <Compile Include="SimpleGeo\NearbyFeature.vb" />
+    <Compile Include="SimpleGeo\Properties.vb" />
     <Compile Include="SimpleGeo\DensityFeature.vb" />
     <Compile Include="SimpleGeo\DensityProperties.vb" />
     <Compile Include="SimpleGeo\History.vb" />

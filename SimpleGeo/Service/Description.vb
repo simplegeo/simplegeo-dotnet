@@ -21,6 +21,12 @@ Namespace SimpleGeo.Service
                 Layer, _
                 ID)
         End Function
+        Public Function CreateEndpoint(ByVal Layer As String) As MessageReceivingEndpoint
+            Return Endpoint( _
+                HttpDeliveryMethods.PostRequest, _
+                "records/{0}.json", _
+                Layer)
+        End Function
         Public Function DeleteEndpoint(ByVal Layer As String, ByVal ID As String) As MessageReceivingEndpoint
             Return Endpoint( _
                 HttpDeliveryMethods.DeleteRequest, _
@@ -76,10 +82,30 @@ Namespace SimpleGeo.Service
                 Longitude)
         End Function
 
+        Public Function LayerEndpoint(ByVal Layer As String) As MessageReceivingEndpoint
+            Return Endpoint( _
+                "layer/{0}.json", _
+                Layer)
+        End Function
+
         Public Function LayerStatsEndpoint(ByVal Layer As String) As MessageReceivingEndpoint
             Return Endpoint( _
                 "stats/{0}.json", _
                 Layer)
+        End Function
+        Public Function LayerStatsEndpoint(ByVal Layer As String, ByVal Start As Date, ByVal [End] As Date) As MessageReceivingEndpoint
+            Return Endpoint( _
+                "stats/{0}/{1}/{2}.json", _
+                Layer, _
+                Start.ToUnixTimestamp, _
+                [End].ToUnixTimestamp)
+        End Function
+
+        Public Function StatsEndpoint(ByVal Start As Date, ByVal [End] As Date) As MessageReceivingEndpoint
+            Return Endpoint( _
+                "stats/{0}/{1}.json", _
+                Start.ToUnixTimestamp, _
+                [End].ToUnixTimestamp)
         End Function
         Public Function StatsEndpoint() As MessageReceivingEndpoint
             Return Endpoint("stats.json")
